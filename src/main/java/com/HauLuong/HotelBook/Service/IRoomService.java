@@ -1,7 +1,9 @@
 package com.HauLuong.HotelBook.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,4 +15,9 @@ public interface IRoomService {
 	List<String> getAllTypes();
 	List<Room> getAllRooms();
 	byte[] getRoomPhotoById(Long id) throws ResourceNotFoundException;
+	void deleteRoom (Long roomId);
+	Room updateRoom(Long roomId, String roomType, BigDecimal roomPrice, byte[] photoBytes) throws ResourceNotFoundException;
+	Optional<Room> getRoomById(Long roomId);
+    List<Room> getAvailableRooms(LocalDate checkInDate, LocalDate checkOutDate, String roomType);
+
 }

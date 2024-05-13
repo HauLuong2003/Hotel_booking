@@ -3,10 +3,12 @@
 import java.math.BigDecimal;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 import javax.sql.rowset.serial.SerialBlob;
+import javax.sql.rowset.serial.SerialException;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -75,4 +77,47 @@ public class RoomServiceImpl implements IRoomService{
 		return null;
 	}
 
+	@Override
+	public void deleteRoom(Long roomId) {
+		Optional<Room> theRoom = roomRepository.findById(roomId);
+		if(theRoom.isPresent()) {
+			roomRepository.deleteById(roomId);
+		}
+	}
+
+	@Override
+	public Room updateRoom(Long roomId, String roomType, BigDecimal roomPrice, byte[] photoBytes) throws ResourceNotFoundException {
+		Room room = roomRepository.findById(roomId).orElseThrow(()-> new ResourceNotFoundException("room not found"));
+
+		try {
+			if(roomType != null) {
+				room.setRoomType(roomType);
+			}
+			if(roomPrice != null) {
+				room.setRoomPrice(roomPrice);
+			}
+			if(photoBytes != null && photoBytes.length > 0) {
+				room.setBookings(null);
+			}
+			room.setPhoto(new SerialBlob(photoBytes));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		return roomRepository.save(room);
+	}
+
+	@Override
+	public Optional<Room> getRoomById(Long roomId) {
+		
+		return Optional.of(roomRepository.findById(roomId).get());
+	}
+
+	@Override
+	public List<Room> getAvailableRooms(LocalDate checkInDate, LocalDate checkOutDate, String roomType) {
+		// TODO Auto-generated method stub
+        return roomRepository.findAvailableRoomsByDatesAndType(checkInDate, checkOutDate, roomType);
+	}
+	
 }
