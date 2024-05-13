@@ -57,7 +57,7 @@ public class RoomServiceImpl implements IRoomService{
 	}
 
 	@Override
-	public byte[] getRoomPhotoById(Long id) {
+	public byte[] getRoomPhotoById(Long id) throws ResourceNotFoundException {
 		Optional<Room> theRoom = roomRepository.findById(id);
 		if(theRoom.isEmpty()) {
 			throw new ResourceNotFoundException("Sorry,Room not found!");
