@@ -28,5 +28,65 @@ public class BookingResponse {
 		this.checkOutDate = checkOutDate;
 		this.bookingConfirmationCode = bookingConfirmationCode;
 	}
+	public Long getBookingId() {
+		return bookingId;
+	}
+	public LocalDate getCheckInDate() {
+		return checkInDate;
+	}
+	public LocalDate getCheckOutDate() {
+		return checkOutDate;
+	}
+	public String getGuestFullName() {
+		return guestFullName;
+	}
+	public String getGuestEmail() {
+		return guestEmail;
+	}
+	public int getNumOfAdults() {
+		return NumOfAdults;
+	}
+	public int getNumOfChildren() {
+		return NumOfChildren;
+	}
+	public int getTotalNumOfGuest() {
+		return totalNumOfGuest;
+	}
+	public String getBookingConfirmationCode() {
+		return bookingConfirmationCode;
+	}
+	public RoomResponse getRoom() {
+		return room;
+	}
+	public void setBookingId(Long bookingId) {
+		this.bookingId = bookingId;
+	}
+	public void setCheckInDate(LocalDate checkInDate) {
+		this.checkInDate = checkInDate;
+	}
+	public void setCheckOutDate(LocalDate checkOutDate) {
+		this.checkOutDate = checkOutDate;
+	}
+	public void setGuestFullName(String guestFullName) {
+		this.guestFullName = guestFullName;
+	}
+	public void setGuestEmail(String guestEmail) {
+		this.guestEmail = guestEmail;
+	}
+	public void setNumOfAdults(int numOfAdults) {
+		NumOfAdults = numOfAdults;
+	}
+	public void setNumOfChildren(int numOfChildren) {
+		NumOfChildren = numOfChildren;
+	}
+	public void setTotalNumOfGuest(int totalNumOfGuest) {
+		this.totalNumOfGuest = totalNumOfGuest;
+	}
+	public void setBookingConfirmationCode(String bookingConfirmationCode) {
+		this.bookingConfirmationCode = bookingConfirmationCode;
+	}
+	public void setRoom(RoomResponse room) {
+		this.room = room;
+	}
 
 }
