@@ -28,6 +28,23 @@ public class BookingResponse {
 		this.checkOutDate = checkOutDate;
 		this.bookingConfirmationCode = bookingConfirmationCode;
 	}
+	
+	public BookingResponse(Long bookingId, LocalDate checkInDate, LocalDate checkOutDate, String guestFullName,
+			String guestEmail, int numOfAdults, int numOfChildren, int totalNumOfGuest, String bookingConfirmationCode,
+			RoomResponse room) {
+		super();
+		this.bookingId = bookingId;
+		this.checkInDate = checkInDate;
+		this.checkOutDate = checkOutDate;
+		this.guestFullName = guestFullName;
+		this.guestEmail = guestEmail;
+		NumOfAdults = numOfAdults;
+		NumOfChildren = numOfChildren;
+		this.totalNumOfGuest = totalNumOfGuest;
+		this.bookingConfirmationCode = bookingConfirmationCode;
+		this.room = room;
+	}
+
 	public Long getBookingId() {
 		return bookingId;
 	}
