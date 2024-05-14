@@ -20,11 +20,12 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import com.HauLuong.HotelBook.Security.User.HotelUserDetailsService;
 
 public class AuthTokenFilter extends OncePerRequestFilter {
-	  @Autowired
+		@Autowired
 	    private JwtUtils jwtUtils;
 
 	    @Autowired
 	    private HotelUserDetailsService userDetailsService;
+	    
 	    private static final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
 	    
 	

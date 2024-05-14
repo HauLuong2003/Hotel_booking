@@ -1,6 +1,8 @@
 package com.HauLuong.HotelBook.Security;
 
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -24,7 +26,9 @@ import com.HauLuong.HotelBook.Security.User.HotelUserDetailsService;
 @RequiredArgsConstructor
 @EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true, prePostEnabled = true)
 public class WebSecurityConfig {
+	@Autowired
 	private  HotelUserDetailsService userDetailsService;
+	
     private  JwtAuthEntryPoint jwtAuthEntryPoint;
 
  
