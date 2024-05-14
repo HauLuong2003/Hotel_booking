@@ -8,12 +8,16 @@ import lombok.Setter;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Role {
 	  @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 	    private String name;
-
+	    
 	    @JsonIgnore
 	    @ManyToMany(mappedBy = "roles")
 	    private Collection<User> users = new HashSet<>();
@@ -22,7 +26,18 @@ public class Role {
 	        this.name = name;
 	    }
 
-	    public void assignRoleToUser(User user){
+
+		public Collection<User> getUsers() {
+			return users;
+		}
+
+
+		public void setUsers(Collection<User> users) {
+			this.users = users;
+		}
+
+
+		public void assignRoleToUser(User user){
 	        user.getRoles().add(this);
 	        this.getUsers().add(user);
 	    }

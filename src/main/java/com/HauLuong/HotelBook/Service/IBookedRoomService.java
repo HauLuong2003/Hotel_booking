@@ -2,6 +2,7 @@ package com.HauLuong.HotelBook.Service;
 
 import java.util.List;
 
+import com.HauLuong.HotelBook.Exception.ResourceNotFoundException;
 import com.HauLuong.HotelBook.Model.BookedRoom;
 
 public interface IBookedRoomService {
@@ -9,7 +10,7 @@ public interface IBookedRoomService {
 	List<BookedRoom> getAllBookingByRoomId(Long id);
 	String saveBooking(Long roomId, BookedRoom bookingRequest);
 
-	BookedRoom findByBookingConfirmationCode(String confirmationCode);
+	BookedRoom findByBookingConfirmationCode(String confirmationCode) throws ResourceNotFoundException;
 
 	List<BookedRoom> getAllBookings();
 
