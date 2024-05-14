@@ -27,8 +27,8 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/booking")
 public class BookingRoomController {
-	private IBookedRoomService BookedRoomService;
-	private  IRoomService roomService;
+	private final IBookedRoomService BookedRoomService;
+	private final IRoomService roomService;
 	public BookingRoomController(IBookedRoomService BookedRoomService,IRoomService roomService) {
 		this.BookedRoomService = BookedRoomService;
 		this.roomService = roomService;

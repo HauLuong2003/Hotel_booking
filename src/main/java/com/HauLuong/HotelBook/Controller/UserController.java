@@ -15,9 +15,14 @@ import com.HauLuong.HotelBook.Service.IUserService;
 @RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
-	private  IUserService userService;
+	private final IUserService userService;
 
-    @GetMapping("/all")
+    public UserController(IUserService userService) {
+		
+		this.userService = userService;
+	}
+
+	@GetMapping("/all")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<List<User>> getUsers(){
 

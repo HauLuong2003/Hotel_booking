@@ -45,8 +45,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RequestMapping("/rooms")
 public class RoomController {
-	private IBookedRoomService bookedRoomService;
-	private IRoomService roomService;
+	private final IBookedRoomService bookedRoomService;
+	private final IRoomService roomService;
 	
 	public RoomController(IRoomService roomService,IBookedRoomService bookedRoomService) {
 	

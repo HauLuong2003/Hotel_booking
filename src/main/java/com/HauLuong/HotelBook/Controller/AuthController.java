@@ -30,11 +30,18 @@ import com.HauLuong.HotelBook.Service.IUserService;
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
-	private  IUserService userService;
-    private  AuthenticationManager authenticationManager;
-    private  JwtUtils jwtUtils;
+	private final IUserService userService;
+    private final  AuthenticationManager authenticationManager;
+    private final  JwtUtils jwtUtils;
 
-    @PostMapping("/register-user")
+    public AuthController(IUserService userService, AuthenticationManager authenticationManager, JwtUtils jwtUtils) {
+		super();
+		this.userService = userService;
+		this.authenticationManager = authenticationManager;
+		this.jwtUtils = jwtUtils;
+	}
+
+	@PostMapping("/register-user")
     public ResponseEntity<?> registerUser(@RequestBody User user){
         try{
             userService.registerUser(user);
