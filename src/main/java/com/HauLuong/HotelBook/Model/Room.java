@@ -20,8 +20,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 @Entity
-@Setter
-@Getter
+
 @AllArgsConstructor
 public class Room {
 	@Id

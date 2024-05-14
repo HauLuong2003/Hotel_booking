@@ -9,8 +9,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 @Entity
-@Getter
-@Setter
+
 @NoArgsConstructor
 public class Role {
 	  @Id
