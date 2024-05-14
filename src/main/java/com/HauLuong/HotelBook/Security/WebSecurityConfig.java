@@ -27,7 +27,8 @@ public class WebSecurityConfig {
 	private  HotelUserDetailsService userDetailsService;
     private  JwtAuthEntryPoint jwtAuthEntryPoint;
 
-    @Bean
+ 
+	@Bean
     public AuthTokenFilter authenticationTokenFilter(){
         return new AuthTokenFilter();
     }

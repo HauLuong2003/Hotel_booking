@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import com.HauLuong.HotelBook.Model.Room;
 
 public interface RoomRepository extends JpaRepository<Room, Long>{
-	@Query("SELECT DISTINCT r.roomType FROM room r")
+	@Query("SELECT DISTINCT r.roomType FROM Room r")
 	List<String> findDistinctRoomTyes();
 	 @Query(" SELECT r FROM Room r " +
 	            " WHERE r.roomType LIKE %:roomType% " +
