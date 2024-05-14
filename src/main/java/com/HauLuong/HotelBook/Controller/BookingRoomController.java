@@ -18,7 +18,7 @@ import com.HauLuong.HotelBook.Model.BookedRoom;
 import com.HauLuong.HotelBook.Model.Room;
 import com.HauLuong.HotelBook.Response.BookingResponse;
 import com.HauLuong.HotelBook.Response.RoomResponse;
-import com.HauLuong.HotelBook.Service.IBookedRoomService;
+import com.HauLuong.HotelBook.Service.IBookingService;
 import com.HauLuong.HotelBook.Service.IRoomService;
 
 import lombok.RequiredArgsConstructor;
@@ -27,9 +27,9 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/booking")
 public class BookingRoomController {
-	private final IBookedRoomService BookedRoomService;
+	private final IBookingService BookedRoomService;
 	private final IRoomService roomService;
-	public BookingRoomController(IBookedRoomService BookedRoomService,IRoomService roomService) {
+	public BookingRoomController(IBookingService BookedRoomService,IRoomService roomService) {
 		this.BookedRoomService = BookedRoomService;
 		this.roomService = roomService;
 	}
