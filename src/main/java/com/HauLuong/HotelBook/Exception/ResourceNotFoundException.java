@@ -1,6 +1,6 @@
 package com.HauLuong.HotelBook.Exception;
 
-public class ResourceNotFoundException extends Throwable {
+public class ResourceNotFoundException extends RuntimeException {
 
 	/**
 	 * 
